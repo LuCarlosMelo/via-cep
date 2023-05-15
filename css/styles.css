@@ -1,3 +1,6 @@
+@import 'buttons.css';
+@import 'modal.css';
+
 * {
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
@@ -77,32 +80,8 @@ html,body{
     color: #c9c9c9;
 }
 
-.form-input::disabled{
-    color: #ddd;
-}
-
-.btn-container{
-    display: flex;
-    justify-content: space-between;   
-}
-
-.btn{
-    background-color: #ff8400;
-    border: 0;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    height: 50px;
-    width: 250px;
-}
-
-.btn-left{
-    margin-right: 10px;
-}
-
-.btn-right{
-    margin-left: 10px;
+.form-input:disabled {
+    background-color: #ddd;
 }
 
 .list-container{
