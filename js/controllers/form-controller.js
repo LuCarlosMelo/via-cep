@@ -32,11 +32,12 @@ export function init() {
     state.errorCep = document.querySelector('[data-error="cep"]');
     state.errorNumber = document.querySelector('[data-error="number"]');
 
-    state.inputNumber.addEventListener('change', handleInputNumberChange);
-    state.inputCep.addEventListener('change', handleInputCepChange);
-    state.btnClear.addEventListener('ckick', handleBtnClearClick);
-
+    state.btnClear.addEventListener('click', handleBtnClearClick);
     state.btnSave.addEventListener('click', handleBtnSaveClick);
+    state.inputCep.addEventListener('change', handleInputCepChange);
+    state.inputNumber.addEventListener('change', handleInputNumberChange);
+    state.inputNumber.addEventListener('keyup', handleInputNumberKeyup);
+    
 
 
 }
@@ -60,8 +61,7 @@ function handleBtnClearClick(event) {
 
 async function handleBtnSaveClick(event) {
     event.preventDefault();
-    const result = await requestService.getJson('https://viacep.com.br/ws/01001000/json/');
-    console.log(result);
+    console.log(state.address);
 }
 
 async function handleInputCepChange(event) {
@@ -82,6 +82,10 @@ async function handleInputCepChange(event) {
         state.inputCity.value = "";
         setFormError("cep", "Informe um CEP válido")
     }
+}
+
+async function handleInputNumberKeyup(event) {
+    state.address.number = event.target.value;
 }
 
 function clearForm() {
